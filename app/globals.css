@@ -1,0 +1,483 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   الألوان الأساسية
+   ======================================== */
+:root {
+  /* الألوان الرئيسية - أحمر فاتح وأزرق فاتح */
+  --red-light: #ff6666;
+  --red-soft: #ff8888;
+  --red-dark: #cc4444;
+  --blue-light: #6666ff;
+  --blue-soft: #8888ff;
+  --blue-dark: #4444cc;
+  
+  /* الألوان المساعدة */
+  --bg-dark: #0a0a0f;
+  --bg-card: rgba(20, 20, 40, 0.95);
+  --text-primary: #e0e0e0;
+  --text-secondary: #888888;
+  --text-muted: #555555;
+  
+  /* ألوان الحالات */
+  --success: #99ff99;
+  --error: #ff6666;
+  --warning: #ffcc66;
+  --info: #66ccff;
+  
+  /* التدرجات */
+  --gradient-red: linear-gradient(135deg, #ff6666, #ff8888);
+  --gradient-blue: linear-gradient(135deg, #6666ff, #8888ff);
+  --gradient-main: linear-gradient(135deg, #ff6666, #6666ff);
+  --gradient-bg: linear-gradient(135deg, #1a0a0a 0%, #0a0a1a 100%);
+}
+
+/* ========================================
+   الإعدادات الأساسية
+   ======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--gradient-bg);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ========================================
+   شريط التمرير المخصص
+   ======================================== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--red-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blue-light);
+}
+
+/* ========================================
+   البطاقات (Cards)
+   ======================================== */
+.card {
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  border: 1px solid var(--red-light);
+  transition: all 0.3s ease;
+}
+
+.card-blue {
+  border-color: var(--blue-light);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(255, 102, 102, 0.1);
+}
+
+/* ========================================
+   الأزرار (Buttons)
+   ======================================== */
+.btn {
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+}
+
+.btn-primary {
+  background: var(--gradient-red);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--red-soft);
+  transform: scale(1.02);
+}
+
+.btn-secondary {
+  background: var(--gradient-blue);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: var(--blue-soft);
+  transform: scale(1.02);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--red-light);
+  color: var(--red-light);
+}
+
+.btn-outline:hover {
+  background: var(--red-light);
+  color: white;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ========================================
+   حقول الإدخال (Inputs)
+   ======================================== */
+.input {
+  width: 100%;
+  background: var(--bg-dark);
+  border: 1px solid var(--red-light);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  color: var(--red-light);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-blue {
+  border-color: var(--blue-light);
+  color: var(--blue-light);
+}
+
+.input:focus {
+  border-color: var(--blue-light);
+  box-shadow: 0 0 8px rgba(102, 102, 255, 0.3);
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+/* ========================================
+   التيرمينال (Terminal)
+   ======================================== */
+.terminal {
+  background: var(--bg-dark);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  height: 24rem;
+  overflow-y: auto;
+  font-family: 'Courier New', monospace;
+  font-size: 0.813rem;
+}
+
+.terminal-line {
+  margin-bottom: 0.5rem;
+  padding: 0.25rem 0;
+  border-left: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.terminal-line:hover {
+  border-left-color: var(--red-light);
+  padding-left: 0.5rem;
+}
+
+/* ألوان رسائل التيرمينال */
+.terminal-success {
+  color: var(--success);
+}
+
+.terminal-error {
+  color: var(--error);
+}
+
+.terminal-warning {
+  color: var(--warning);
+}
+
+.terminal-info {
+  color: var(--info);
+}
+
+.terminal-bot {
+  color: var(--red-light);
+}
+
+.terminal-system {
+  color: var(--blue-light);
+}
+
+/* ========================================
+   النصوص والتدرجات
+   ======================================== */
+.gradient-text {
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-text-red {
+  background: var(--gradient-red);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-text-blue {
+  background: var(--gradient-blue);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ========================================
+   الفواصل والخطوط
+   ======================================== */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--red-light), var(--blue-light), transparent);
+  margin: 1rem 0;
+}
+
+.divider-horizontal {
+  width: 3rem;
+  height: 0.25rem;
+  background: var(--gradient-main);
+  margin-bottom: 1rem;
+}
+
+/* ========================================
+   المؤشرات والحالات
+   ======================================== */
+.status-dot {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.status-active {
+  background: var(--success);
+  animation: pulse 1.5s infinite;
+}
+
+.status-inactive {
+  background: var(--text-muted);
+}
+
+.status-warning {
+  background: var(--warning);
+  animation: pulse 2s infinite;
+}
+
+/* ========================================
+   التنسيقات المساعدة
+   ======================================== */
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gap-1 { gap: 0.5rem; }
+.gap-2 { gap: 1rem; }
+.gap-3 { gap: 1.5rem; }
+.gap-4 { gap: 2rem; }
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+.p-3 { padding: 1.5rem; }
+.p-4 { padding: 2rem; }
+
+/* ========================================
+   الحركات (Animations)
+   ======================================== */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease;
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease;
+}
+
+/* ========================================
+   تأثيرات التحميل (Loading)
+   ======================================== */
+.loader {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--red-light);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ========================================
+   تصميم متجاوب (Responsive)
+   ======================================== */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+  
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+  }
+  
+  .terminal {
+    height: 18rem;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========================================
+   تأثيرات إضافية
+   ======================================== */
+.glow-red {
+  box-shadow: 0 0 10px rgba(255, 102, 102, 0.3);
+}
+
+.glow-blue {
+  box-shadow: 0 0 10px rgba(102, 102, 255, 0.3);
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.user-select-none {
+  user-select: none;
+}
+
+/* ========================================
+   تنسيق النصوص في التيرمينال
+   ======================================== */
+.terminal pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* ========================================
+   تنسيق الأزرار في حالة التعطيل
+   ======================================== */
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* ========================================
+   تنسيق الروابط
+   ======================================== */
+a {
+  color: var(--blue-light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--red-light);
+}
+
+/* ========================================
+   تنسيق الخلفية
+   ======================================== */
+.bg-gradient {
+  background: var(--gradient-bg);
+}
+
+.bg-card-blur {
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+}
